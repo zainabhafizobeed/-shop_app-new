@@ -35,6 +35,9 @@ class _BodyState extends State<Body> {
     return SafeArea(
       child: SizedBox(
         width: double.infinity,
+        child:Padding(
+          padding:
+          EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(30)),
         child: Column(
           children: <Widget>[
             Expanded(
@@ -82,6 +85,7 @@ class _BodyState extends State<Body> {
             ),
             ),
           ],
+        ),
         ),
       ),
     );

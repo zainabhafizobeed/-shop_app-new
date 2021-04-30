@@ -2,8 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:shop_app/components/no_account_text.dart';
 import 'package:shop_app/components/socal_card.dart';
-import 'package:shop_app/screens/sign_in/components/sign_form.dart';
+import 'package:shop_app/screens/sign_in/components/sign_in_form.dart';
 import 'package:shop_app/size_config.dart';
+
+import '../../../constants.dart';
 
 class Body extends StatelessWidget {
   @override
@@ -13,18 +15,14 @@ class Body extends StatelessWidget {
         width: double.infinity,
         child: Padding(
           padding:
-              EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
+              EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(30)),
           child: SingleChildScrollView(
             child: Column(
               children: <Widget>[
                 // SizedBox(height: SizeConfig.screenHeight* 0.04,),
                 Text(
                   "Welcome Back",
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: getProportionateScreenWidth(28),
-                    fontWeight: FontWeight.bold,
-                  ),
+                  style: headingStyle,
                 ),
                 SizedBox(
                   height: SizeConfig.screenHeight * 0.04,

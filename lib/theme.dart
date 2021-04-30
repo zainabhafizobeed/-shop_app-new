@@ -18,7 +18,7 @@ ThemeData theme() {
       gapPadding: 10,
     );
     return InputDecorationTheme(
-      contentPadding: EdgeInsets.symmetric(horizontal: 45, vertical: 20,),
+      contentPadding: EdgeInsets.symmetric(horizontal: 35, vertical: 10,),
       enabledBorder: outlineInputBorder,
       focusedBorder: outlineInputBorder,
       border: outlineInputBorder,
