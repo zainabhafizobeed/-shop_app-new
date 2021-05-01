@@ -3,6 +3,7 @@ import 'package:shop_app/routs.dart';
 import 'package:shop_app/screens/splash/splash.dart';
 import 'package:shop_app/theme.dart';
 import 'package:shop_app/screens/sign_in/components/body.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -13,10 +14,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme:theme(),
+      theme: theme(),
       // home: SplashScreen(),
-      initialRoute:SplashScreen.routeName,
-      routes:routes ,
+      initialRoute: SplashScreen.routeName,
+      routes: routes,
     );
   }
 }

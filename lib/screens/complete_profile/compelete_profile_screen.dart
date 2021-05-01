@@ -5,11 +5,15 @@ import '../../size_config.dart';
 
 class CompleteProfileScreen extends StatelessWidget {
   static String routeName = "/complete_profile";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Sign Up",style: TextStyle(fontSize: getProportionateScreenWidth(20),)),
+        title: Text("Sign Up",
+            style: TextStyle(
+              fontSize: getProportionateScreenWidth(20),
+            )),
         centerTitle: true,
       ),
       body: Body(),

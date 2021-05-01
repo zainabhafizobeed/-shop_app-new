@@ -12,9 +12,9 @@ const kTextColor = Color(0xFF757575);
 const kAnimationDuration = Duration(milliseconds: 200);
 
 final headingStyle = TextStyle(
-    color: Colors.black,
-    fontSize: getProportionateScreenWidth(28),
-    fontWeight: FontWeight.bold,
+  color: Colors.black,
+  fontSize: getProportionateScreenWidth(28),
+  fontWeight: FontWeight.bold,
 );
 //form error
 
@@ -30,17 +30,16 @@ const String KPhoneNumberNullError = "please Enter Your Phone Number";
 const String KAddressNullError = "Please Enter your Address";
 
 final otpInputDecoration = InputDecoration(
-    contentPadding: EdgeInsets.symmetric(
-        vertical: getProportionateScreenWidth(15)
-    ),
-    enabledBorder: outlineInputBorder(),
-    focusedBorder: outlineInputBorder(),
-    border: outlineInputBorder(),
+  contentPadding:
+      EdgeInsets.symmetric(vertical: getProportionateScreenWidth(15)),
+  enabledBorder: outlineInputBorder(),
+  focusedBorder: outlineInputBorder(),
+  border: outlineInputBorder(),
 );
-    OutlineInputBorder outlineInputBorder(){
-        return OutlineInputBorder(
-        borderRadius: BorderRadius.circular(15),
-        borderSide: BorderSide(color: kTextColor),
 
-);
-    }
+OutlineInputBorder outlineInputBorder() {
+  return OutlineInputBorder(
+    borderRadius: BorderRadius.circular(15),
+    borderSide: BorderSide(color: kTextColor),
+  );
+}

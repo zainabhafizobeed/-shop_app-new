@@ -7,6 +7,7 @@ import 'package:shop_app/screens/login_success/login_success_screen.dart';
 
 import '../../../constants.dart';
 import '../../../size_config.dart';
+
 class SignForm extends StatefulWidget {
   @override
   _SignFormState createState() => _SignFormState();
@@ -18,6 +19,7 @@ class _SignFormState extends State<SignForm> {
   String password;
   bool remember = false;
   final List<String> errors = [];
+
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -25,14 +27,19 @@ class _SignFormState extends State<SignForm> {
       child: Column(
         children: <Widget>[
           buildEmailFormField(),
-          SizedBox(height: getProportionateScreenHeight(30),),
+          SizedBox(
+            height: getProportionateScreenHeight(30),
+          ),
           buildPasswordFormField(),
-          SizedBox(height: getProportionateScreenHeight(30),),
+          SizedBox(
+            height: getProportionateScreenHeight(30),
+          ),
           Row(
             children: [
-              Checkbox(value: remember,
+              Checkbox(
+                value: remember,
                 activeColor: kPrimaryColor,
-                onChanged: (value){
+                onChanged: (value) {
                   setState(() {
                     remember = value;
                   });
@@ -41,18 +48,23 @@ class _SignFormState extends State<SignForm> {
               Text("Remember me "),
               Spacer(),
               GestureDetector(
-                onTap: () => Navigator.pushNamed(context,
-                    ForgotPasswordScreen.routeName),
-              child:Text("Forgot Password",style: TextStyle(decoration: TextDecoration.underline),),
+                onTap: () => Navigator.pushNamed(
+                    context, ForgotPasswordScreen.routeName),
+                child: Text(
+                  "Forgot Password",
+                  style: TextStyle(decoration: TextDecoration.underline),
+                ),
               ),
-                ],
+            ],
           ),
           FormError(errors: errors),
-          SizedBox(height: getProportionateScreenHeight(20),),
+          SizedBox(
+            height: getProportionateScreenHeight(20),
+          ),
           DefaultButton(
             text: "Continue",
             press: () {
-              if(_formKey.currentState.validate ()){
+              if (_formKey.currentState.validate()) {
                 _formKey.currentState.save();
                 Navigator.pushNamed(context, LoginSuccessScreen.routeName);
               }
@@ -66,18 +78,17 @@ class _SignFormState extends State<SignForm> {
   TextFormField buildEmailFormField() {
     return TextFormField(
       keyboardType: TextInputType.emailAddress,
-      onSaved: (newValue)=> email =newValue,
-      onChanged: (value){
+      onSaved: (newValue) => email = newValue,
+      onChanged: (value) {
         if (value.isNotEmpty && errors.contains(KEmailNullError)) {
           setState(() {
             errors.remove(KEmailNullError);
           });
-        }else if(emailValidateRegExp.hasMatch(value)&&
-            errors.contains( KInvalidEmailError)){
+        } else if (emailValidateRegExp.hasMatch(value) &&
+            errors.contains(KInvalidEmailError)) {
           setState(() {
             errors.remove(KInvalidEmailError);
           });
-
         }
 
         return null;
@@ -89,8 +100,8 @@ class _SignFormState extends State<SignForm> {
             errors.add(KEmailNullError);
           });
           return "";
-        }else if(!emailValidateRegExp.hasMatch(value)&&
-            !errors.contains( KInvalidEmailError)){
+        } else if (!emailValidateRegExp.hasMatch(value) &&
+            !errors.contains(KInvalidEmailError)) {
           setState(() {
             errors.add(KInvalidEmailError);
           });
@@ -112,28 +123,26 @@ class _SignFormState extends State<SignForm> {
   TextFormField buildPasswordFormField() {
     return TextFormField(
       obscureText: true,
-      onSaved: (newValue) => password = newValue ,
-      onChanged: (value){
+      onSaved: (newValue) => password = newValue,
+      onChanged: (value) {
         if (value.isNotEmpty && errors.contains(KPassNullError)) {
           setState(() {
             errors.remove(KPassNullError);
           });
-        }else if(value.length >= 8  &&
-            errors.contains( KShortPassError)){
+        } else if (value.length >= 8 && errors.contains(KShortPassError)) {
           setState(() {
             errors.remove(KShortPassError);
           });
         }
         return null;
       },
-      validator: (value){
+      validator: (value) {
         if (value.isEmpty && !errors.contains(KPassNullError)) {
           setState(() {
             errors.add(KPassNullError);
           });
           return "";
-        }else if(value.length <8 &&
-            !errors.contains( KShortPassError)){
+        } else if (value.length < 8 && !errors.contains(KShortPassError)) {
           setState(() {
             errors.add(KShortPassError);
           });

@@ -25,10 +25,10 @@ class Body extends StatelessWidget {
                   height: SizeConfig.screenHeight * 0.04,
                 ),
                 Center(
-               child: Text(
-                  "Complete your details or continue with social media",
-                  textAlign: TextAlign.center,
-                ),
+                  child: Text(
+                    "Complete your details or continue with social media",
+                    textAlign: TextAlign.center,
+                  ),
                 ),
                 SizedBox(
                   height: SizeConfig.screenHeight * 0.04,
@@ -57,7 +57,10 @@ class Body extends StatelessWidget {
                 SizedBox(
                   height: SizeConfig.screenHeight * 0.04,
                 ),
-                Text("By Continuing your confirm that you agree with our Term and Condition",textAlign: TextAlign.center,),
+                Text(
+                  "By Continuing your confirm that you agree with our Term and Condition",
+                  textAlign: TextAlign.center,
+                ),
               ],
             ),
           ),

@@ -6,6 +6,7 @@ import 'package:shop_app/screens/login_success/login_success_screen.dart';
 import 'package:shop_app/screens/otp/otp_screen.dart';
 import '../../../constants.dart';
 import '../../../size_config.dart';
+
 class SignForm extends StatefulWidget {
   @override
   _SignFormState createState() => _SignFormState();
@@ -18,13 +19,15 @@ class _SignFormState extends State<SignForm> {
   String lastName;
   int phone;
   String address;
-  void addError({String error}){
-if (!errors.contains(error))
-  setState(() {
-    errors.add(error);
-  });
-}
-  void removeError({String error}){
+
+  void addError({String error}) {
+    if (!errors.contains(error))
+      setState(() {
+        errors.add(error);
+      });
+  }
+
+  void removeError({String error}) {
     if (!errors.contains(error))
       setState(() {
         errors.add(error);
@@ -38,21 +41,31 @@ if (!errors.contains(error))
       child: Column(
         children: <Widget>[
           buildFirstNameFormField(),
-          SizedBox(height: getProportionateScreenHeight(30),),
+          SizedBox(
+            height: getProportionateScreenHeight(30),
+          ),
           buildLastNameFormField(),
-          SizedBox(height: getProportionateScreenHeight(30),),
+          SizedBox(
+            height: getProportionateScreenHeight(30),
+          ),
           buildNumberFormField(),
-          SizedBox(height: getProportionateScreenHeight(30),),
+          SizedBox(
+            height: getProportionateScreenHeight(30),
+          ),
           buildAddressFormField(),
-          SizedBox(height: getProportionateScreenHeight(30),),
+          SizedBox(
+            height: getProportionateScreenHeight(30),
+          ),
           FormError(errors: errors),
-          SizedBox(height: getProportionateScreenHeight(20),),
+          SizedBox(
+            height: getProportionateScreenHeight(20),
+          ),
           DefaultButton(
             text: "Continue",
             press: () {
-              if(_formKey.currentState.validate ()){
+              if (_formKey.currentState.validate()) {
                 // _formKey.currentState.save();
-                Navigator.pushNamed(context,OtpScreen.routeName );
+                Navigator.pushNamed(context, OtpScreen.routeName);
               }
             },
           ),
@@ -64,8 +77,8 @@ if (!errors.contains(error))
   TextFormField buildFirstNameFormField() {
     return TextFormField(
       keyboardType: TextInputType.name,
-      onSaved: (newValue)=>firstName  =newValue,
-      onChanged: (value){
+      onSaved: (newValue) => firstName = newValue,
+      onChanged: (value) {
         if (value.isNotEmpty && errors.contains(KNameNullError)) {
           setState(() {
             errors.remove(KNameNullError);
@@ -94,11 +107,12 @@ if (!errors.contains(error))
       ),
     );
   }
+
   TextFormField buildLastNameFormField() {
     return TextFormField(
       keyboardType: TextInputType.name,
-      onSaved: (newValue)=>lastName  =newValue,
-      onChanged: (value){
+      onSaved: (newValue) => lastName = newValue,
+      onChanged: (value) {
         if (value.isNotEmpty && errors.contains(KNameNullError)) {
           setState(() {
             errors.remove(KNameNullError);
@@ -126,11 +140,12 @@ if (!errors.contains(error))
       ),
     );
   }
+
   TextFormField buildNumberFormField() {
     return TextFormField(
       keyboardType: TextInputType.phone,
-      onSaved: (newValue)=>phone  =newValue as int,
-      onChanged: (value){
+      onSaved: (newValue) => phone = newValue as int,
+      onChanged: (value) {
         if (value.isNotEmpty && errors.contains(KPhoneNumberNullError)) {
           setState(() {
             errors.remove(KPhoneNumberNullError);
@@ -159,11 +174,12 @@ if (!errors.contains(error))
       ),
     );
   }
+
   TextFormField buildAddressFormField() {
     return TextFormField(
       keyboardType: TextInputType.streetAddress,
-      onSaved: (newValue)=>address  =newValue ,
-      onChanged: (value){
+      onSaved: (newValue) => address = newValue,
+      onChanged: (value) {
         if (value.isNotEmpty && errors.contains(KAddressNullError)) {
           setState(() {
             errors.remove(KAddressNullError);
@@ -192,6 +208,4 @@ if (!errors.contains(error))
       ),
     );
   }
-
 }
-

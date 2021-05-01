@@ -28,17 +28,25 @@ class _SignFormState extends State<SignForm> {
       child: Column(
         children: <Widget>[
           buildEmailFormField(),
-          SizedBox(height: getProportionateScreenHeight(20),),
+          SizedBox(
+            height: getProportionateScreenHeight(20),
+          ),
           buildPasswordFormField(),
-          SizedBox(height: getProportionateScreenHeight(20),),
+          SizedBox(
+            height: getProportionateScreenHeight(20),
+          ),
           buildConformPasswordFormField(),
-          SizedBox(height: getProportionateScreenHeight(20),),
+          SizedBox(
+            height: getProportionateScreenHeight(20),
+          ),
           FormError(errors: errors),
-          SizedBox(height: getProportionateScreenHeight(20),),
+          SizedBox(
+            height: getProportionateScreenHeight(20),
+          ),
           DefaultButton(
             text: "Continue",
             press: () {
-              if(_formKey.currentState.validate ()){
+              if (_formKey.currentState.validate()) {
                 _formKey.currentState.save();
                 Navigator.pushNamed(context, CompleteProfileScreen.routeName);
               }
@@ -52,18 +60,17 @@ class _SignFormState extends State<SignForm> {
   TextFormField buildEmailFormField() {
     return TextFormField(
       keyboardType: TextInputType.emailAddress,
-      onSaved: (newValue)=> email =newValue,
-      onChanged: (value){
+      onSaved: (newValue) => email = newValue,
+      onChanged: (value) {
         if (value.isNotEmpty && errors.contains(KEmailNullError)) {
           setState(() {
             errors.remove(KEmailNullError);
           });
-        }else if(emailValidateRegExp.hasMatch(value)&&
-            errors.contains( KInvalidEmailError)){
+        } else if (emailValidateRegExp.hasMatch(value) &&
+            errors.contains(KInvalidEmailError)) {
           setState(() {
             errors.remove(KInvalidEmailError);
           });
-
         }
 
         return null;
@@ -75,8 +82,8 @@ class _SignFormState extends State<SignForm> {
             errors.add(KEmailNullError);
           });
           return "";
-        }else if(!emailValidateRegExp.hasMatch(value)&&
-            !errors.contains( KInvalidEmailError)){
+        } else if (!emailValidateRegExp.hasMatch(value) &&
+            !errors.contains(KInvalidEmailError)) {
           setState(() {
             errors.add(KInvalidEmailError);
           });
@@ -98,14 +105,13 @@ class _SignFormState extends State<SignForm> {
   TextFormField buildPasswordFormField() {
     return TextFormField(
       obscureText: true,
-      onSaved: (newValue) => password = newValue ,
-      onChanged: (value){
+      onSaved: (newValue) => password = newValue,
+      onChanged: (value) {
         if (value.isNotEmpty && errors.contains(KPassNullError)) {
           setState(() {
             errors.remove(KPassNullError);
           });
-        }else if(value.length >= 8  &&
-            errors.contains( KShortPassError)){
+        } else if (value.length >= 8 && errors.contains(KShortPassError)) {
           setState(() {
             errors.remove(KShortPassError);
           });
@@ -113,14 +119,13 @@ class _SignFormState extends State<SignForm> {
         password = value;
         return null;
       },
-      validator: (value){
+      validator: (value) {
         if (value.isEmpty && !errors.contains(KPassNullError)) {
           setState(() {
             errors.add(KPassNullError);
           });
           return "";
-        }else if(value.length <8 &&
-            !errors.contains( KShortPassError)){
+        } else if (value.length < 8 && !errors.contains(KShortPassError)) {
           setState(() {
             errors.add(KShortPassError);
           });
@@ -137,12 +142,12 @@ class _SignFormState extends State<SignForm> {
         ),
       ),
     );
-
   }
+
   TextFormField buildConformPasswordFormField() {
     return TextFormField(
       obscureText: true,
-      onSaved: (newValue) => conformPassword= newValue,
+      onSaved: (newValue) => conformPassword = newValue,
       onChanged: (value) {
         if (password == conformPassword) {}
         return null;
@@ -151,8 +156,7 @@ class _SignFormState extends State<SignForm> {
         if (value.isEmpty) {
           return "";
         } else if (password != value) {
-
-            errors.add(KMatchPassError);
+          errors.add(KMatchPassError);
 
           return "";
         }

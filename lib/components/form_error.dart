@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../size_config.dart';
+
 class FormError extends StatelessWidget {
   const FormError({
     Key key,
@@ -12,9 +13,8 @@ class FormError extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-        children:List.generate(
-            errors.length, (index) => formErrorsText(error: errors[index]))
-    );
+        children: List.generate(
+            errors.length, (index) => formErrorsText(error: errors[index])));
   }
 }
 

@@ -35,7 +35,10 @@ class Body extends StatelessWidget {
                 SizedBox(
                   height: SizeConfig.screenHeight * 0.02,
                 ),
-                Text("By Continuing your confirm that you agree with our Term and Condition",textAlign: TextAlign.center,),
+                Text(
+                  "By Continuing your confirm that you agree with our Term and Condition",
+                  textAlign: TextAlign.center,
+                ),
               ],
             ),
           ),

@@ -5,14 +5,15 @@ import '../../size_config.dart';
 
 class LoginSuccessScreen extends StatelessWidget {
   static String routeName = "/login_success";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        centerTitle:true,
-        title: Text("Login Success ",
-          style: TextStyle(
-            fontSize: getProportionateScreenWidth(20)),
+        centerTitle: true,
+        title: Text(
+          "Login Success ",
+          style: TextStyle(fontSize: getProportionateScreenWidth(20)),
         ),
       ),
       body: Body(),

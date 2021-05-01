@@ -10,7 +10,8 @@ class DefaultButton extends StatelessWidget {
     this.press,
   }) : super(key: key);
   final text;
-  final  press;
+  final press;
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -21,9 +22,12 @@ class DefaultButton extends StatelessWidget {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         color: kPrimaryColor,
         onPressed: press,
-        child: Text(text, style: TextStyle(
-            color: Colors.white,
-            fontSize: getProportionateScreenWidth(18)),),),
+        child: Text(
+          text,
+          style: TextStyle(
+              color: Colors.white, fontSize: getProportionateScreenWidth(18)),
+        ),
+      ),
     );
   }
 }
