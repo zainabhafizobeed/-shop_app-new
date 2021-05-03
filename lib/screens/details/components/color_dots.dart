@@ -24,15 +24,17 @@ class ColorDots extends StatelessWidget {
         children: [
           ...List.generate(
             product.colors.length,
-                (index) => ColorDot(
+            (index) => ColorDot(
               color: product.colors[index],
               isSelected: selectedColor == index,
             ),
           ),
           Spacer(),
-          RoundedIconBtn(iconData: Icons.remove, press: (){}),
-          SizedBox(width: getProportionateScreenWidth(15),),
-          RoundedIconBtn(iconData: Icons.add, press: (){}),
+          RoundedIconBtn(iconData: Icons.remove, press: () {}),
+          SizedBox(
+            width: getProportionateScreenWidth(15),
+          ),
+          RoundedIconBtn(iconData: Icons.add, press: () {}),
         ],
       ),
     );

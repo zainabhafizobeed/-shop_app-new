@@ -8,7 +8,8 @@ class DetailsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ProductDetailsArguments arguments = ModalRoute.of(context).settings.arguments;
+    final ProductDetailsArguments arguments =
+        ModalRoute.of(context).settings.arguments;
     return Scaffold(
       //By default our background color is white
       backgroundColor: Color(0xFFF5F6F9),
@@ -19,7 +20,6 @@ class DetailsScreen extends StatelessWidget {
     );
   }
 }
-
 
 //But we also need to pass our product to our details screen
 //And we use name route sp we need to create  a arguments class

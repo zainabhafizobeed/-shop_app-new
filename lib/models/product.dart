@@ -6,6 +6,7 @@ class Product {
   final List<Color> colors;
   final double rating, price;
   final bool isFavourite, isPoplar;
+  final int id;
 
   Product({
     @required this.images,
@@ -16,6 +17,7 @@ class Product {
     @required this.title,
     @required this.price,
     @required this.description,
+    this.id,
   });
 }
 

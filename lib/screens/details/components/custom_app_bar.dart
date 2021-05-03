@@ -8,6 +8,7 @@ class CustomAppBar extends PreferredSize {
   final double rating;
 
   CustomAppBar(this.rating);
+
   @override
   Size get preferredSize => Size.fromHeight(AppBar().preferredSize.height);
 
@@ -15,8 +16,8 @@ class CustomAppBar extends PreferredSize {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Padding(
-        padding: EdgeInsets.symmetric(
-            horizontal: getProportionateScreenWidth(20)),
+        padding:
+            EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -25,15 +26,20 @@ class CustomAppBar extends PreferredSize {
               press: () => Navigator.pop(context),
             ),
             Container(
-              padding: EdgeInsets.symmetric(horizontal: 14,vertical: 5 ),
+              padding: EdgeInsets.symmetric(horizontal: 14, vertical: 5),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(14),
                 color: Colors.white,
               ),
               child: Row(
                 children: [
-                  Text(rating.toString(),style: TextStyle(fontWeight: FontWeight.w600),),
-                  const SizedBox(width: 5,),
+                  Text(
+                    rating.toString(),
+                    style: TextStyle(fontWeight: FontWeight.w600),
+                  ),
+                  const SizedBox(
+                    width: 5,
+                  ),
                   SvgPicture.asset("assets/icons/Star Icon.svg"),
                 ],
               ),

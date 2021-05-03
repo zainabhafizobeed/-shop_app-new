@@ -5,7 +5,6 @@ import 'package:shop_app/screens/login_success/login_success_screen.dart';
 import '../../../constants.dart';
 import '../../../size_config.dart';
 
-
 class OtpForm extends StatefulWidget {
   @override
   _OtpFormState createState() => _OtpFormState();
@@ -116,16 +115,17 @@ class _OtpFormState extends State<OtpForm> {
           ),
           DefaultButton(
             text: "Continue",
-            press: () =>Navigator.pushNamed(context, LoginSuccessScreen.routeName),
+            press: () =>
+                Navigator.pushNamed(context, LoginSuccessScreen.routeName),
           ),
           SizedBox(
             height: SizeConfig.screenHeight * 0.10,
           ),
           GestureDetector(
-            child:Text(
+            child: Text(
               "Resent OTP Code",
               style:
-              TextStyle(fontSize: 16, decoration: TextDecoration.underline),
+                  TextStyle(fontSize: 16, decoration: TextDecoration.underline),
             ),
           ),
         ],
